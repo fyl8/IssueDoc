@@ -2,7 +2,7 @@
 
 [一、Firebase Google Analytics对接](#Firebase接入)
 
-* [准备工作](#*准备工作)
+* [准备工作]( #*准备工作)
  
 * [记录事件](#*记录事件)
  
