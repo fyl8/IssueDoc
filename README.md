@@ -6,9 +6,9 @@
  
  * [记录事件](#记录事件)
    
-   + [Unity 记录事件](#Unity-记录事件)
+   + [Unity 记录事件](#unity-记录事件)
    
-   + [Android 记录事件](#Android-记录事件)
+   + [Android 记录事件](#android-记录事件)
    
    + [C++ 记录事件](#c++-记录事件)
  
