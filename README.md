@@ -6,11 +6,11 @@
  
  * [记录事件](#记录事件)
    
-   + [Unity 记录事件](#Unity记录事件)
+   + [Unity记录事件](#unity记录事件)
    
-   + [Android 记录事件](#android-记录事件)
+   + [Android记录事件](#android-记录事件)
    
-   + [C++ 记录事件](#c++-记录事件)
+   + [C++记录事件](#c++-记录事件)
  
 [二、Adjust 对接](#Adjust接入)
 
