@@ -2,9 +2,9 @@
 
 [一、Firebase Google Analytics对接](#Firebase接入)
 
-* [准备工作](###1.准备工作)
+* [准备工作](###1.准备工作) 
  
-* [记录事件](###2.记录事件)
+* [记录事件](###2.记录事件) 
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -14,15 +14,15 @@
 
 [五、提交游戏](#提交游戏)
 
-# Firebase接入
-### 1.准备工作
+# Firebase接入 
+### 1.准备工作 
 * [Unity添加Firebase](https://firebase.google.com/docs/unity/setup?hl=zh-cn) 
 
 * [Android添加Firebase](https://firebase.google.com/docs/android/setup?hl=zh-cn) 
 
 * [C++添加Firebase](https://firebase.google.com/docs/cpp/setup?hl=zh-cn&platform=android) 
 
-### 2.记录事件
+### 2.记录事件 
 * Unity 记录事件
 
   Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
