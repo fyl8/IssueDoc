@@ -1,7 +1,6 @@
-[TOC]
 # 对接文档
 
-[一、Firebase Google Analytics对接](#Firebase接入)
+[一、Firebase Google Analytics对接](#一、Firebase接入)
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -11,7 +10,7 @@
 
 [五、提交游戏](#提交游戏)
 
-# Firebase接入
+# 一、Firebase接入
 ### 1. 准备工作
 * [Unity添加Firebase](https://firebase.google.com/docs/unity/setup?hl=zh-cn) 
 
