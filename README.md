@@ -2,7 +2,7 @@
 
 [一、Firebase Google Analytics对接](#一、Firebase接入)
 
-* [准备工作](#1.准备工作)
+* [准备工作](#准备工作)
  
 [二、Adjust 对接](#Adjust接入)
 
