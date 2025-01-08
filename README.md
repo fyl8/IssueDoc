@@ -22,7 +22,7 @@
 
   + [C++添加Firebase](https://firebase.google.com/docs/cpp/setup?hl=zh-cn&platform=android) 
 
-* 记录事件 
+### 记录事件 
   + Unity 记录事件,Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
 以下示例使用各种类型的参数来记录事件：
