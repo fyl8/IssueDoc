@@ -6,7 +6,7 @@
  
  * [记录事件](#记录事件)
    
-   + [Unity 记录事件](#unity-记录事件)
+   + [Unity 记录事件](#Unity记录事件)
    
    + [Android 记录事件](#android-记录事件)
    
@@ -29,7 +29,7 @@
   + [C++添加Firebase](https://firebase.google.com/docs/cpp/setup?hl=zh-cn&platform=android) 
 
 ### 记录事件 
-  + Unity 记录事件
+  + Unity记录事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
@@ -65,7 +65,9 @@ Firebase.Analytics.FirebaseAnalytics.LogEvent(
   Firebase.Analytics.FirebaseAnalytics.EventLevelUp,LevelUpParameters);
 
 ```
-  + Android 记录事件,Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
+  + Android记录事件
+
+Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
   
 菲律宾 &hl=en-PH
@@ -85,7 +87,9 @@ Firebase.Analytics.FirebaseAnalytics.LogEvent(
 澳大利亚 &hl=en_AU
 
 法国 &hl=fr_FR
-  + C++ 记录事件,Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
+  + C++记录事件
+
+Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
   
 韩国 &hl=ko_KR
