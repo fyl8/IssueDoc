@@ -11,19 +11,52 @@
 [五、提交游戏](#提交游戏)
 
 # Firebase接入
-## 1. subtitle1
-xxx
-## 2. subtitle2
-yyy
+### 1. 准备工作
+* [Unity添加Firebase](https://firebase.google.com/docs/unity/setup?hl=zh-cn) 
 
-波兰&hl=pl-PL
+* [Android添加Firebase](https://firebase.google.com/docs/android/setup?hl=zh-cn) 
 
-爱尔兰&hl=en-IE
+* [C++添加Firebase](https://firebase.google.com/docs/cpp/setup?hl=zh-cn&platform=android) 
 
-墨西哥&hl= es-MX
+### 2. 记录事件
+* Unity 记录事件
 
-越南&hl=vi
+  Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
+  以下示例使用各种类型的参数来记录事件：
+```ruby
+ //参数1：事件名称。  参数2：参数名称。  参数3：参数值
+Firebase.Analytics.FirebaseAnalytics.LogEvent(string name);
+Firebase.Analytics.FirebaseAnalytics.LogEvent(string name,string parameterName,string parameterValue);
+
+  // 记录没有参数的事件。记录login的事件
+Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLogin);
+
+// 记录带有浮点参数的事件  例如：记录观看广告获得的收入
+Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase", "revenue_value", 0.04f);
+
+// 记录带有 int 参数的事件。 例如：记录了游戏关卡达到5关
+Firebase.Analytics.FirebaseAnalytics.LogEvent("level","level_value",5);
+
+// 记录带有字符串参数的事件。
+Firebase.Analytics.FirebaseAnalytics.LogEvent(
+    Firebase.Analytics.FirebaseAnalytics.EventJoinGroup,
+    Firebase.Analytics.FirebaseAnalytics.ParameterGroupId,
+    "spoon_welders");
+
+// 记录具有多个参数的事件，作为结构传递：
+Firebase.Analytics.Parameter[] LevelUpParameters = {
+  new Firebase.Analytics.Parameter(Firebase.Analytics.FirebaseAnalytics.ParameterLevel, 5),
+  new Firebase.Analytics.Parameter(Firebase.Analytics.FirebaseAnalytics.ParameterCharacter, "mrspoon"),
+  new Firebase.Analytics.Parameter("hit_accuracy", 3.14f)
+};
+
+Firebase.Analytics.FirebaseAnalytics.LogEvent(
+  Firebase.Analytics.FirebaseAnalytics.EventLevelUp,LevelUpParameters);
+
+```
+
+  
 菲律宾 &hl=en-PH
 
 香港 &hl=zh_HK
