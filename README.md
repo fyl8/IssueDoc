@@ -1,3 +1,4 @@
+[TOC]
 # 对接文档
 
 [一、Firebase Google Analytics对接](#Firebase接入)
