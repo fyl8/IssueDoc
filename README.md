@@ -2,9 +2,9 @@
 
 [一、Firebase Google Analytics对接](#Firebase接入)
 
-* [准备工作](#-准备工作)
+ * [准备工作](#准备工作)
  
-* [记录事件](#-记录事件)
+ * [记录事件](#记录事件)
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -15,7 +15,7 @@
 [五、提交游戏](#提交游戏)
 
 # Firebase接入 
-* 准备工作 
+### 准备工作 
   + [Unity添加Firebase](https://firebase.google.com/docs/unity/setup?hl=zh-cn) 
 
   + [Android添加Firebase](https://firebase.google.com/docs/android/setup?hl=zh-cn) 
