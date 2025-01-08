@@ -6,11 +6,11 @@
  
  * [记录事件](#记录事件)
    
-   - [记录Unity事件](#记录Unity事件)
+   - [记录Unity事件](#记录unity事件)
    
-   - [Android记录事件](#android记录事件)
+   - [Android记录事件](#记录android事件)
    
-   - [C++记录事件](#c++记录事件)
+   - [C++记录事件](#记录c++事件)
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -29,7 +29,7 @@
   + [C++添加Firebase](https://firebase.google.com/docs/cpp/setup?hl=zh-cn&platform=android) 
 
 ### 记录事件 
-  + 记录Unity事件
+  ###### 记录Unity事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
@@ -65,7 +65,7 @@ Firebase.Analytics.FirebaseAnalytics.LogEvent(
   Firebase.Analytics.FirebaseAnalytics.EventLevelUp,LevelUpParameters);
 
 ```
-  + Android记录事件
+  ###### 记录Android事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
@@ -87,7 +87,7 @@ Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/
 澳大利亚 &hl=en_AU
 
 法国 &hl=fr_FR
-  + C++记录事件
+  ###### 记录C++事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
