@@ -10,7 +10,7 @@
    
    - [Android记录事件](#记录android事件)
    
-   - [记录C++事件](#记录c++事件)
+   - [记录C++事件](#记录c事件)
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -87,7 +87,7 @@ Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/
 澳大利亚 &hl=en_AU
 
 法国 &hl=fr_FR
-  #### 记录C++事件
+  #### 记录C事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
 
