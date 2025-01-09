@@ -114,8 +114,9 @@ adb logcat -v time -s FA FA-SVC
 
   #### Analytics错误代码 
  - [Analytics错误代码](https://firebase.google.com/docs/analytics/errors?hl=zh-cn)
+   
 </br>
-</br>
+
   #### 验证事件
 ###### 查看 Android Studio 调试日志中的事件
  
