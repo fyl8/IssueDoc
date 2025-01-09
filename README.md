@@ -13,6 +13,8 @@
    - [记录C++事件](#记录c事件)
    
    - [Analytics错误代码](#Analytics错误代码)
+  
+   - [验证事件](#验证事件)
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -34,6 +36,11 @@
   #### 记录Unity事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
+
+您可在以下位置找到推荐事件的实现详情：
+
+   + 推荐事件：请查阅 [Event](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#eventaddpaymentinfo) 常量列表。
+   + 预设参数：请参阅 [Parameters](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/parameter?hl=zh-cn) 常量列表。
 
 以下示例使用各种类型的参数来记录事件：
 ```ruby
@@ -63,8 +70,10 @@ Firebase.Analytics.Parameter[] parameters = {
   new Firebase.Analytics.Parameter("revenue", 3.14f)
 };
 Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase",parameters);
-
 ```
+</br>
+</br>
+</br>
   #### 记录Android事件
 
 创建 FirebaseAnalytics 实例后，您就可以使用该实例通过 [logEvent()](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics?hl=zh-cn#logEvent(java.lang.String,%20android.os.Bundle)) 方法来记录事件。
@@ -105,11 +114,34 @@ adb logcat -v time -s FA FA-SVC
 
   #### Analytics错误代码 
  - [Analytics错误代码](https://firebase.google.com/docs/analytics/errors?hl=zh-cn)
+</br>
+</br>
+  #### 验证事件
+###### 查看 Android Studio 调试日志中的事件
+ 
+您可以启用详细日志记录功能以监控 SDK 的事件记录，从而帮助验证是否正确记录了事件，包括自动和手动记录的事件。
+
+您可以通过一系列 adb 命令启用详细日志记录功能：
+```ruby
+adb shell setprop log.tag.FA VERBOSE
+```
+```ruby
+adb shell setprop log.tag.FA-SVC VERBOSE
+```
+```ruby
+adb logcat -v time -s FA FA-SVC
+```
+此命令可在 Android Studio logcat 中显示您的事件，帮助您立即验证所发送的事件。
+</br>
+</br>
+</br>
 
 
   #### 记录C事件
 
-Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
+配置 [firebase::App](https://firebase.google.com/docs/analytics/cpp/start?hl=zh-cn) 实例后,，您可以开始使用 [LogEvent()](https://firebase.google.com/docs/reference/cpp/namespace/firebase/analytics?hl=zh-cn#logevent) 方法记录事件。
+
+记录事件，请参阅[文档](https://firebase.google.com/docs/analytics/cpp/events?hl=zh-cn)
 
   
 韩国 &hl=ko_KR
