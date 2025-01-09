@@ -11,6 +11,8 @@
    - [记录Android事件](#记录android事件)
    
    - [记录C++事件](#记录c事件)
+   
+   - [Analytics错误代码](#Analytics错误代码)
  
 [二、Adjust 对接](#Adjust接入)
 
@@ -54,37 +56,57 @@ Firebase.Analytics.FirebaseAnalytics.LogEvent(
     Firebase.Analytics.FirebaseAnalytics.ParameterGroupId,
     "spoon_welders");
 
-// 记录具有多个参数的事件，作为结构传递,例如：记录广告收入，广告id，广告名称等等：
+// 记录具有多个参数的事件,例如：记录广告收入，广告id，广告名称等等：
 Firebase.Analytics.Parameter[] parameters = {
   new Firebase.Analytics.Parameter("adUnitId", "这里传入广告ID"),
   new Firebase.Analytics.Parameter("networkName", "这里传入广告名称"),
-  new Firebase.Analytics.Parameter("ad_purchase", 3.14f)
+  new Firebase.Analytics.Parameter("revenue", 3.14f)
 };
 Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase",parameters);
 
 ```
   #### 记录Android事件
 
-Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
+创建 FirebaseAnalytics 实例后，您就可以使用该实例通过 [logEvent()](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics?hl=zh-cn#logEvent(java.lang.String,%20android.os.Bundle)) 方法来记录事件。
 
-  
-菲律宾 &hl=en-PH
+```ruby
+// Obtain the FirebaseAnalytics instance.
+FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+// 记录具有多个参数的事件，例如：记录广告收入，广告id，广告名称
+Bundle params = new Bundle();
+params.putString("adUnitId", "这里传入广告ID");
+params.putInt("networkName", text);
+params.putInt("networkName", "这里传入广告名称");
+params.putFloat("revenue",0.0003f);
+mFirebaseAnalytics.logEvent("ad_purchase", params);
+```
+ ###### 您可在以下位置找到推荐的事件类型的实现详情：
 
-香港 &hl=zh_HK
+  - 推荐事件：请参阅 [com.google.firebase.analytics.FirebaseAnalytics.Event](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics.Event?hl=zh-cn) 类参考文档。
 
-台湾 &hl=zh_TW
+  - 预设参数：请参阅 [com.google.firebase.analytics.FirebaseAnalytics.Param](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics.Param?hl=zh-cn) 参考文档。
 
-泰国 &hl=th_TH
+ ###### 查看 Android Studio 调试日志中的事件
+ 
+您可以启用详细日志记录功能以监控 SDK 的事件记录，从而帮助验证是否正确记录了事件，包括自动和手动记录的事件。
 
-德国 &hl=de_DE
+您可以通过一系列 adb 命令启用详细日志记录功能：
+```ruby
+adb shell setprop log.tag.FA VERBOSE
+```
+```ruby
+adb shell setprop log.tag.FA-SVC VERBOSE
+```
+```ruby
+adb logcat -v time -s FA FA-SVC
+```
+此命令可在 Android Studio logcat 中显示您的事件，帮助您立即验证所发送的事件。
 
-新加坡 &hl=en_SG
 
-加拿大 &hl=en_CA
+  #### Analytics错误代码 
+ - [Analytics错误代码](https://firebase.google.com/docs/analytics/errors?hl=zh-cn)
 
-澳大利亚 &hl=en_AU
 
-法国 &hl=fr_FR
   #### 记录C事件
 
 Unity可以使用 [LogEvent()](https://firebase.google.com/docs/reference/unity/class/firebase/analytics/firebase-analytics?hl=zh-cn#logevent) 方法立即开始记录事件。
