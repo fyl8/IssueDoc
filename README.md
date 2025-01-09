@@ -107,13 +107,14 @@ params.putInt("networkName", "这里传入广告名称");
 params.putFloat("revenue",0.0003f);
 mFirebaseAnalytics.logEvent("ad_purchase", params);
 ```
- ###### 您可在以下位置找到推荐的事件类型的实现详情：
+
+您可在以下位置找到推荐的事件类型的实现详情：
 
   - 推荐事件：请参阅 [com.google.firebase.analytics.FirebaseAnalytics.Event](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics.Event?hl=zh-cn) 类参考文档。
 
   - 预设参数：请参阅 [com.google.firebase.analytics.FirebaseAnalytics.Param](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics.Param?hl=zh-cn) 参考文档。
 
- ###### 查看 Android Studio 调试日志中的事件
+查看 Android Studio 调试日志中的事件
  
 您可以启用详细日志记录功能以监控 SDK 的事件记录，从而帮助验证是否正确记录了事件，包括自动和手动记录的事件。
 
@@ -136,7 +137,8 @@ adb logcat -v time -s FA FA-SVC
 </br>
 
   #### 验证事件
-###### 查看 Android Studio 调试日志中的事件
+
+查看 Android Studio 调试日志中的事件
  
 您可以启用详细日志记录功能以监控 SDK 的事件记录，从而帮助验证是否正确记录了事件，包括自动和手动记录的事件。
 
@@ -301,9 +303,31 @@ Adjust.trackAdRevenue(adjustAdRevenue);
 
 #### 记录购买订阅信息
 
+首先，您需要实例化一个包含订阅购买详情的订阅对象。为此，请创建一个新AdjustPlayStoreSubscription对象并传递以下参数：
+| Parameter | Data type |  Description  |
+| :-    |  :-   |  :-   |
+| price    |  long   |  订阅价格   |
+| currency    |  String   |  订阅货币   |
+| sku    |  String   |  产品ID   |
+| orderId    |  String   |  您的交易 ID   |
+| signature    |  String   |  购买数据的签名   |
+| purchaseToken    |  String   |  交易的唯一令牌。有关详细信息，请参阅[Google 的文档](https://developer.android.com/reference/com/android/billingclient/api/Purchase)   |
+
+```ruby
+AdjustPlayStoreSubscription subscription = new AdjustPlayStoreSubscription(price,currency,sku,orderId,signature,purchaseToken);
+Adjust.trackPlayStoreSubscription(subscription);
+```
+
+更多详细参数方法，请参考[官方文档](https://dev.adjust.com/en/sdk/android/features/subscriptions)
+</br>
+</br>
 
  #### Unity接入
-yyy
+
+
+
+
+
  #### 测试指南
 
 # Max广告接入
