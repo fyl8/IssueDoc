@@ -54,15 +54,13 @@ Firebase.Analytics.FirebaseAnalytics.LogEvent(
     Firebase.Analytics.FirebaseAnalytics.ParameterGroupId,
     "spoon_welders");
 
-// 记录具有多个参数的事件，作为结构传递：
-Firebase.Analytics.Parameter[] LevelUpParameters = {
-  new Firebase.Analytics.Parameter(Firebase.Analytics.FirebaseAnalytics.ParameterLevel, 5),
-  new Firebase.Analytics.Parameter(Firebase.Analytics.FirebaseAnalytics.ParameterCharacter, "mrspoon"),
-  new Firebase.Analytics.Parameter("hit_accuracy", 3.14f)
+// 记录具有多个参数的事件，作为结构传递,例如：记录广告收入，广告id，广告名称等等：
+Firebase.Analytics.Parameter[] parameters = {
+  new Firebase.Analytics.Parameter("adUnitId", "这里传入广告ID"),
+  new Firebase.Analytics.Parameter("networkName", "这里传入广告名称"),
+  new Firebase.Analytics.Parameter("ad_purchase", 3.14f)
 };
-
-Firebase.Analytics.FirebaseAnalytics.LogEvent(
-  Firebase.Analytics.FirebaseAnalytics.EventLevelUp,LevelUpParameters);
+Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase",parameters);
 
 ```
   #### 记录Android事件
