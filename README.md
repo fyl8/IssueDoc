@@ -18,6 +18,24 @@
  
 [二、Adjust 对接](#Adjust接入)
 
+  * [Android接入](#Android接入)
+
+     - [添加依赖](#添加依赖)
+       
+     - [添加权限](#添加权限)
+       
+     - [设置Proguard](#设置proguard)
+       
+     - [集成配置Adjust](#集成配置adjust)
+       
+     - [记录广告收入](#记录广告收入)
+   
+     - [记录购买订阅信息](#记录购买订阅信息)
+   
+  * [Unity接入](#unity接入)
+
+  * [测试指南](#测试指南)
+
 [三、Max广告接入](#Max广告接入)
 
 [四、Topon广告接入](#Topon广告接入)
@@ -148,10 +166,145 @@ adb logcat -v time -s FA FA-SVC
 
 
 # Adjust接入
-## 1. subtitle1
-xxx
-## 2. subtitle2
+ #### Android接入
+
+#### 添加依赖
+```ruby
+dependencies {
+   implementation 'com.adjust.sdk:adjust-android:5.0.2'
+   implementation 'com.android.installreferrer:installreferrer:2.2'
+   // Add the following if you are using the Adjust SDK inside web views on your app
+   implementation 'com.adjust.sdk:adjust-android-webbridge:5.0.2'
+   implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+   implementation 'com.android.installreferrer:installreferrer:2.2'
+}
+```
+
+#### 添加权限
+```ruby
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+<!--Adjust SDKcom.google.android.gms.AD_ID默认包含该权限。如果您需要让您的应用符合 COPPA（儿童在线隐私保护法）或您的应用不针对 Google Play 商店，则必须使用remove指令删除此权限。-->
+<uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+```
+
+#### 设置Proguard
+```ruby
+-keep class com.adjust.sdk.** { *; }
+-keep class com.google.android.gms.common.ConnectionResult {
+   int SUCCESS;
+}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {
+   com.google.android.gms.ads.identifier.AdvertisingIdClient$Info getAdvertisingIdInfo(android.content.Context);
+}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {
+   java.lang.String getId();
+   boolean isLimitAdTrackingEnabled();
+}
+-keep public class com.android.installreferrer.** { *; }
+```
+
+#### 集成配置Adjust
+
+要配置 Adjust SDK，您需要实例化一个AdjustConfig对象。此对象包含您需要传递给 Adjust SDK 的只读配置选项。
+
+要实例化您的配置对象，请创建一个新AdjustConfig实例并传递以下参数：
+
+  - context( Context)：您的应用正在其中运行的Android 上下文this。传递以获取当前应用上下文。
+  - appToken( String)：您的Adjust 应用令牌。
+  - environment( String)：您要在其中运行 SDK 的环境。通过AdjustConfig.ENVIRONMENT_SANDBOX以沙盒模式运行 SDK 进行测试。通过AdjustConfig.ENVIRONMENT_PRODUCTION以生产模式运行 SDK 进行发布。
+  - allowSuppressLogLevel( Boolean)：是否禁止所有日志记录。设置为true禁止日志记录或false启用日志记录。
+
+设置日志记录级别：
+| 日志级别 | 描述 |
+| :-    |  :-   |
+| LogLevel.VERBOSE    |  启用所有日志记录   |
+| LogLevel.DEBUG    |  启用调试日志记录   |
+| LogLevel.INFO    |  仅显示信息级别日志（默认选项）   |
+| LogLevel.WARN    |  禁用信息警告   |
+| LogLevel.ERROR    |  禁用警告级别及以下的日志记录   |
+| LogLevel.ASSERT    |  禁用错误级别及以下的日志记录   |
+| LogLevel.SUPPRESS    |  禁止所有日志记录   |
+
+更多配置请参考[Adjust官方文档](https://dev.adjust.com/en/sdk/android/configuration)
+
+```ruby
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustConfig;
+
+public class GlobalApplication extends Application {
+   @Override
+   public void onCreate() {
+      super.onCreate();
+
+      String appToken = "{AppToken 找运营人员索要}";
+      String environment = AdjustConfig.ENVIRONMENT_SANDBOX;//沙盒模式运行 SDK 进行测试
+      //String environment = AdjustConfig.ENVIRONMENT_PRODUCTION;//以生产模式运行 SDK 进行发布
+      AdjustConfig config = new AdjustConfig(this, appToken, environment);
+      config.setLogLevel(LogLevel.VERBOSE);//设置日志记录级别
+      Adjust.initSdk(config);
+   }
+}
+```
+</br>
+
+#### 记录广告收入
+要实例化广告收入对象，请创建一个新AdjustAdRevenue实例并传递以下参数：
+
+ - source（String）：广告收入来源。请参阅下表了解可用来源
+
+| Argument | 广告收入来源 |
+| :-    |  :-   |
+| "applovin_max_sdk"    |  AppLovin MAX   |
+| "admob_sdk"    |  AdMob   |
+| "ironsource_sdk"    |  ironSource   |
+| "admost_sdk"    |  AdMost   |
+| "unity_sdk"    |  Unity   |
+| "helium_chartboost_sdk"    |  Helium Chartboost   |
+| "adx_sdk"    |  Ad(X)   |
+| "publisher_sdk"    |  Generic source   |
+| "tradplus_sdk"    |  TradPlus   |
+| "topon_sdk"    |  TopOn   |
+| "mopub"    |  Mopub   |
+
+```ruby
+AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue("applovin_max_sdk");
+Adjust.trackAdRevenue(adjustAdRevenue);
+```
+
+例子：
+此示例显示如何设置和记录具有以下属性的广告收入对象：
+
+  - AppLovin MAX 作为收入来源
+  - 1 欧元作为收入金额
+  - 10 次广告展示
+  - "network1"作为广告收入网络
+  - "unit1"作为广告收入单位
+  - "banner"作为广告收入展示位置
+  - 回调参数："key1" = "value1"
+  - 合作伙伴参数："key2" = "value2"
+```ruby
+AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AD_REVENUE_APPLOVIN_MAX);
+adjustAdRevenue.setRevenue(广告收入金额, "货币单位(一般是USD)");
+//adjustAdRevenue.setAdImpressionsCount(10);
+adjustAdRevenue.setAdRevenueNetwork("network1");//广告收入网络
+//adjustAdRevenue.setAdRevenueUnit("unit1");//广告收入单位
+adjustAdRevenue.setAdRevenuePlacement("banner");//广告收入展示位置
+//adjustAdRevenue.addCallbackParameter("key1", "value1");
+//adjustAdRevenue.addPartnerParameter("key2", "value2");
+Adjust.trackAdRevenue(adjustAdRevenue);
+```
+了解更多更详细参数请参考[官方文档](https://dev.adjust.com/en/sdk/android/features/ad-revenue)
+</br>
+</br>
+
+#### 记录购买订阅信息
+
+
+ #### Unity接入
 yyy
+ #### 测试指南
 
 # Max广告接入
 ## 1. subtitle1
