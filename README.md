@@ -168,7 +168,7 @@ adb logcat -v time -s FA FA-SVC
 
 
 # Adjust接入
- #### Android接入
+ ## Android接入
 
 #### 添加依赖
 ```ruby
@@ -322,13 +322,13 @@ Adjust.trackPlayStoreSubscription(subscription);
 </br>
 </br>
 
- #### Unity接入
+ ## Unity接入
 
 
 
 
 
- #### 测试指南
+ ## 测试指南
 
 # Max广告接入
 ## 1. subtitle1
