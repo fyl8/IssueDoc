@@ -46,6 +46,22 @@
 
 [三、Topon广告接入](#Topon广告接入)
 
+  * [Android接入指南](#android接入指南)
+
+      - [集成](#集成)
+
+      - [广告样式](#广告样式)
+
+      - [高级设置说明](#高级设置说明)
+
+      - [政策合规](#政策合规)
+
+      - [集成测试](#集成测试)
+
+  * [Unity接入指南](#unity接入指南)
+
+  * [错误码](#错误码)
+
 [四、Max广告接入](#Max广告接入)
 
 [五、提交游戏](#提交游戏)
@@ -479,7 +495,7 @@ Adjust.trackPlayStoreSubscription(subscription);
   ![](https://dev.adjust.com/_astro/testing-console.PELeaOX1_x2rTl.webp)
 
 # Topon广告接入
-## 1. Android接入指南
+## Android接入指南
  ### 集成
  
   - [SDK下载](https://help.toponad.com/cn/docs/ji-cheng-rnnt#1._SDK%E4%B8%8B%E8%BD%BD),每个账号下的SDK都有一定的区别,请联系我方运营人员索要下载SDK，
@@ -502,37 +518,21 @@ Adjust.trackPlayStoreSubscription(subscription);
  
  ### 广告样式
  
-  #### 激励视频广告
-
-  官方[激励视频广告](https://help.toponad.com/cn/docs/ji-li-shi-pin)接入
+  [激励视频广告接入](https://help.toponad.com/cn/docs/ji-li-shi-pin)
   
-  #### 插屏广告
-
-  官方[插屏广告](https://help.toponad.com/cn/docs/cha-ping-guang-gao)接入
+  [插屏广告接入](https://help.toponad.com/cn/docs/cha-ping-guang-gao)
   
-  #### 开屏广告
-
-  官方[开屏广告](https://help.toponad.com/cn/docs/kai-ping-guang-gao)接入
+  [开屏广告接入](https://help.toponad.com/cn/docs/kai-ping-guang-gao)
   
-  #### 横幅广告
-
-  官方[横幅广告](https://help.toponad.com/cn/docs/heng-fu-guang-gao)接入
+  [横幅广告接入](https://help.toponad.com/cn/docs/heng-fu-guang-gao)
   
-  #### 原生广告
-
-  官方[原生广告](https://help.toponad.com/cn/docs/yuan-sheng-guang-gao)接入
-  
-  #### 回调信息说明
+  [原生广告接入](https://help.toponad.com/cn/docs/yuan-sheng-guang-gao)
 
   [回调信息说明](https://help.toponad.com/cn/docs/hui-diao-xin-xi-shuo-ming)
   
- ### 高级设置说明
-
- [高级设置说明](https://help.toponad.com/cn/docs/eePVq0)
+  [高级设置说明](https://help.toponad.com/cn/docs/eePVq0)
  
- ### 政策合规
-
- [政策合规](https://help.toponad.com/cn/docs/XTVV9t)
+  [政策合规](https://help.toponad.com/cn/docs/XTVV9t)
  
  ### 集成测试
 
@@ -587,10 +587,61 @@ ATDebuggerUITest.showDebuggerUI(context);
  使用调试模式可以测试单个广告平台，具体详细使用方法，请参考[官方文档](https://help.toponad.com/cn/docs/5xiiue#3.1_%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F%E6%94%AF%E6%8C%81%E7%9A%84%E5%B9%BF%E5%91%8A%E5%B9%B3%E5%8F%B0)
  
 
-## 2. Unity接入指南
+## Unity接入指南
 
-## 3. 错误码
-#### TopOn错误码信息说明
+  ### SDK下载和导入说明
+  
+请联系运营人员帮忙下载对应的Unity SDK
+
+SDK导入请参考导入说明：[Android & iOS导入说明](https://help.toponad.com/cn/docs/hd01b0)
+
+  ### UnitySDK初始化
+
+API说明，请参考官方对应的[API说明表](https://help.toponad.com/cn/docs/Unity-SDK-chu-shi-hua)
+
+示例代码，详细参考[demo project](https://github.com/toponteam/TopOn-Unity-Demo-test):
+
+```ruby
+//（可选配置）设置自定义的Map信息，可匹配后台配置的广告商顺序的列表（App纬度）
+//注意：调用此方法会清除setChannel()、setSubChannel()方法设置的信息，如果有设置这些信息，请在调用此方法后重新设置
+ATSDKAPI.initCustomMap(new Dictionary<string, string> { { "unity3d_data", "test_data" } }); 
+
+//（可选配置）设置自定义的Map信息，可匹配后台配置的广告商顺序的列表（Placement纬度）
+ATSDKAPI.setCustomDataForPlacementID(new Dictionary<string, string> { { "unity3d_data_pl", "test_data_pl" } } ,placementId);
+
+//（可选配置）设置渠道的信息，开发者可以通过该渠道信息在后台来区分看各个渠道的广告数据
+//注意：如果有使用initCustomMap()方法，必须在initCustomMap()方法之后调用此方法
+ATSDKAPI.setChannel("unity3d_test_channel"); 
+
+//（可选配置）设置子渠道的信息，开发者可以通过该渠道信息在后台来区分看各个渠道的子渠道广告数据
+//注意：如果有使用initCustomMap()方法，必须在initCustomMap()方法之后调用此方法
+ATSDKAPI.setSubChannel("unity3d_test_subchannel"); 
+
+//设置开启Debug日志（强烈建议测试阶段开启，方便排查问题）
+ATSDKAPI.setLogDebug(true);
+
+//（必须配置）SDK的初始化
+ATSDKAPI.initSDK("a5c4ad280995c9", "7b4e37f819dbee652ef79c4506e14288");//Use your own app_id & app_key here
+```
+
+  ### 不同形式的广告接入
+  
+[激励视频广告接入](https://help.toponad.com/cn/docs/ji-li-shi-pin-guang-gao-ji-cheng-shuo-ming)
+
+[插屏广告接入](https://help.toponad.com/cn/docs/cha-ping-guang-gao-ji-cheng-shuo-ming)
+
+[Banner广告接入](https://help.toponad.com/cn/docs/Banner-guang-gao-ji-cheng-shuo-ming)
+
+[原生广告接入](https://help.toponad.com/cn/docs/yuan-sheng-guang-gao-ji-cheng-shuo-ming)
+
+[开屏广告接入](https://help.toponad.com/cn/docs/kai-ping-guang-gao-jie-ru)
+
+</br>
+</br>
+
+## 错误码
+
+  ### TopOn错误码信息说明
 
 参阅下表：
 
@@ -625,11 +676,13 @@ ATDebuggerUITest.showDebuggerUI(context);
 | 4008    |  因为开发者代码中的自定义过滤逻辑，导致广告源被过滤。如果过滤不符合预期，请排查自定义过滤逻辑   |
 | 4009    |  调试模式下，该广告位没有配置广告源信息   |
 
-  #### 第三方平台错误码信息说明
+  ### 第三方平台错误码信息说明
 
 详细错误码文档，请参考[官方文档](https://help.toponad.com/cn/docs/qYfOSS#2._%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B9%BF%E5%91%8A%E5%B9%B3%E5%8F%B0%E9%94%99%E8%AF%AF%E7%A0%81)
-  
 
+  ### [TopOn常见问题-Android](https://help.toponad.com/cn/docs/Android-j9K8)
+
+  ### [TopOn常见问题-Unity](https://help.toponad.com/cn/docs/Unity-8xiG)
 
 # Max广告接入
 ## 1. subtitle1
