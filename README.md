@@ -44,9 +44,9 @@
 
   * [测试指南](#测试指南)
 
-[三、Max广告接入](#Max广告接入)
+[三、Topon广告接入](#Topon广告接入)
 
-[四、Topon广告接入](#Topon广告接入)
+[四、Max广告接入](#Max广告接入)
 
 [五、提交游戏](#提交游戏)
 
@@ -475,14 +475,163 @@ Adjust.trackPlayStoreSubscription(subscription);
 - [上次订阅事件子类型](https://help.adjust.com/en/article/manage-subscription-data#subscription-event-subtypes)
 - 上次订阅事件时间戳
 - 产品 ID
-
-# Max广告接入
-## 1. subtitle1
-xxx
-## 2. subtitle2
-yyy
+  
+  ![](https://dev.adjust.com/_astro/testing-console.PELeaOX1_x2rTl.webp)
 
 # Topon广告接入
+## 1. Android接入指南
+ ### 集成
+ 
+  - [SDK下载](https://help.toponad.com/cn/docs/ji-cheng-rnnt#1._SDK%E4%B8%8B%E8%BD%BD),每个账号下的SDK都有一定的区别,请联系我方运营人员索要下载SDK，
+
+  - [集成配置](https://help.toponad.com/cn/docs/ji-cheng-rnnt#2._%E9%9B%86%E6%88%90%E9%85%8D%E7%BD%AE),请参考官方文档。
+
+  - [初始化SDK](https://help.toponad.com/cn/docs/ji-cheng-rnnt#3._%E5%88%9D%E5%A7%8B%E5%8C%96SDK)
+
+示例代码：
+```ruby
+   public class DemoApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate()
+        ATSDK.init(this, "Your App ID", "Your App Key");
+    }
+}
+```
+ 
+ ### 广告样式
+ 
+  #### 激励视频广告
+
+  官方[激励视频广告](https://help.toponad.com/cn/docs/ji-li-shi-pin)接入
+  
+  #### 插屏广告
+
+  官方[插屏广告](https://help.toponad.com/cn/docs/cha-ping-guang-gao)接入
+  
+  #### 开屏广告
+
+  官方[开屏广告](https://help.toponad.com/cn/docs/kai-ping-guang-gao)接入
+  
+  #### 横幅广告
+
+  官方[横幅广告](https://help.toponad.com/cn/docs/heng-fu-guang-gao)接入
+  
+  #### 原生广告
+
+  官方[原生广告](https://help.toponad.com/cn/docs/yuan-sheng-guang-gao)接入
+  
+  #### 回调信息说明
+
+  [回调信息说明](https://help.toponad.com/cn/docs/hui-diao-xin-xi-shuo-ming)
+  
+ ### 高级设置说明
+
+ [高级设置说明](https://help.toponad.com/cn/docs/eePVq0)
+ 
+ ### 政策合规
+
+ [政策合规](https://help.toponad.com/cn/docs/XTVV9t)
+ 
+ ### 集成测试
+
+  * 如何测试广告
+
+    * SDK日志开关
+   
+    ```ruby
+    ATSDK.setNetworkLogDebug(true);
+    ```
+
+    打开日志功能之后，可以获取到测试设备ID：
+    
+      1.打开AndroidStudio的Logcat，以 "anythink" 为 tag 进行过滤，查看SDK的日志
+            
+      2.TopOn SDK初始化时会打印如下日志，可以从日志中获取设备ID
+            
+      3.如果没有打印GAID的值，请检查当前手机有没有Google服务，需要使用带Google服务的手机机型测试
+    
+```ruby
+anythink: ****************************************************************************
+anythink: GAID(ADID): b796a53f-61bf-4e91-bc67-d505cdb97cf8 , AndroidID: f669f2b7137d82b9
+anythink: ****************************************************************************
+ ```
+
+* 通过测试工具测试广告
+
+引入测试工具，build.gradle中添加引用
+
+```ruby
+repositories {
+    maven {
+        url "https://jfrog.anythinktech.com/artifactory/debugger"
+    }
+}
+dependencies {
+    // Debugger UI Tools
+    implementation 'com.anythink.sdk:debugger-ui:1.1.0'
+}
+
+```
+
+
+调起测试工具,注意：必须在初始化TopOn SDK之后，调用下面的方法才能使用测试工具。
+
+```ruby
+ATDebuggerUITest.showDebuggerUI(context);
+```
+ 
+ * 通过调试模式测试广告
+
+ 使用调试模式可以测试单个广告平台，具体详细使用方法，请参考[官方文档](https://help.toponad.com/cn/docs/5xiiue#3.1_%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F%E6%94%AF%E6%8C%81%E7%9A%84%E5%B9%BF%E5%91%8A%E5%B9%B3%E5%8F%B0)
+ 
+
+## 2. Unity接入指南
+
+## 3. 错误码
+#### TopOn错误码信息说明
+
+参阅下表：
+
+| 错误码 | 说明 |
+| :-    |  :-   |
+| 10001    |  App ID或App Key错误，请检查初始化TopOn SDK时传入的App ID和App Key   |
+| 10003    |  1. App ID错误，请检查初始化TopOn SDK时传入的App ID</br>2. TopOn广告位ID与App ID不匹配，请检查代码中调用load方法时传入的Placement ID   |
+| 10004    |  TopOn广告位ID错误，请检查调用load方法时传入的Placement ID   |
+| 9999    |  1. 网络请求出现错误，检查网络状态是否正常</br>2. 出现错误信息：chain validation failed，请检查是否有调整过测试设备的系统时间   |
+| 9990    |  HTTP接口请求返回的状态错误，需要联系TopOn同事查看错误信息   |
+| 9991    |  接口请求返回的业务代码错误，需要联系TopOn同事查看错误信息   |
+| 9992    |  GDPR的等级设置过低，检查是否手动设置了FORBIDDEN等级   |
+| 2001    |  广告加载超时，检查当前的测试的广告源是否是海外平台，手机网络是否已经翻墙   |
+| 2002    |  TopOn的SDK包导入不全，缺失第三方广告厂商的Adapter包（anythink_network_*.aar），确认是否已经按照指引导入聚合的第三方需要的SDK包   |
+| 2003    |  当前广告位的展示次数已经达到上限，需要确认TopOn的后台配置是否限制了该广告位的展示次数   |
+| 2004    |  当前广告位处于非展示时间段，需要确认TopOn的后台配置是否限制了广告位的展示间隔   |
+| 2005    |  该广告位处于加载阶段，同一个广告位发起请求后，在接收到加载成功或失败的回调之前，该广告位不能发起下一次的加载，请等待加载成功、失败的回调   |
+| 2006    |  检查导入第三方广告平台的SDK包是否齐全，如果齐全则检查导入的版本是否与GitHub上指定的版本是否相符合，否则需要将第三方SDK包补充完整   |
+| 2007    |  通常发生于，在加载失败的回调中立刻发起广告加载。禁止在加载失败的回调中立刻发起广告加载，距离上一次该广告位加载失败需满足一定时间间隔才可发起广告加载，请延迟调用广告加载的时间   |
+| 2008    |  同一个广告位加载失败后禁止在加载失败的回调里立马调用load方法进行重试，请延迟10s以上再进行重试   |
+| 2009    |  在一定时间间隔内广告位的加载次数达到上限   |
+| 3001    |  策略获取错误</br>1. 检查网络是否正常</br>2. 检查使用的appid，appkey，placementid是否匹配</br>3. 检查代码中appid，appkey，placementid是否正确并且匹配（不能包含空格）</br>调用 ATSDK.setNetworkLogDebug(true); 在Logcat中过滤 anythink 可查看当前传入SDK的参数，请检查这些参数   |
+| 3002    |  传入的appid,appkey，placementid其中有一个为空字符</br>调用 ATSDK.setNetworkLogDebug(true); 在Logcat中过滤 anythink 可查看当前传入SDK的参数，请检查这些参数   |
+| 3003    |  广告位与调用的API不匹配，例如：Banner的广告位调用了激励视频的API去加载广告   |
+| 4001    |  通常发生于第三方广告平台返回错误导致没有广告填充，可通过AdError.getFullErrorInfo()获取完全的错误信息，通过platformCode及platformMsg查看广告平台的错误码及错误信息，请查看第三方广告平台错误码进行排查   |
+| 4002    |  Context的上下文已经被销毁，需要重新创建相应的广告类型对象再重新发起广告加载   |
+| 4003    |  该广告位的状态已经关闭，检查TopOn后台该广告位的状态开关是否开启   |
+| 4004    |  该广告位没有在TopOn后台配置广告源的信息，需要到TopOn后台-聚合管理 为广告位添加第三方广告平台的广告源   |
+| 4005    |  广告位下的所有广告源被过滤，可能的原因如下：</br>1. 检查是否在TopOn后台设置了广告源的展示上限、展示间隔</br>2. 如果只配置了头部竞价广告源，询价失败时，头部竞价广告源将被过滤   |
+| 4006    |  视频播放失败，参照 4001错误码 进行排查   |
+| 4007    |  广告源竞价失败，参照 4001错误码 进行排查   |
+| 4008    |  因为开发者代码中的自定义过滤逻辑，导致广告源被过滤。如果过滤不符合预期，请排查自定义过滤逻辑   |
+| 4009    |  调试模式下，该广告位没有配置广告源信息   |
+
+  #### 第三方平台错误码信息说明
+
+详细错误码文档，请参考[官方文档](https://help.toponad.com/cn/docs/qYfOSS#2._%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B9%BF%E5%91%8A%E5%B9%B3%E5%8F%B0%E9%94%99%E8%AF%AF%E7%A0%81)
+  
+
+
+# Max广告接入
 ## 1. subtitle1
 xxx
 ## 2. subtitle2
