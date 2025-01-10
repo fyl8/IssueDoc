@@ -114,8 +114,7 @@ Firebase.Analytics.Parameter[] parameters = {
 Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase",parameters);
 ```
 </br>
-</br>
-</br>
+
   #### 记录Android事件
 
 创建 FirebaseAnalytics 实例后，您就可以使用该实例通过 [logEvent()](https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics?hl=zh-cn#logEvent(java.lang.String,%20android.os.Bundle)) 方法来记录事件。
@@ -178,9 +177,6 @@ adb logcat -v time -s FA FA-SVC
 ```
 此命令可在 Android Studio logcat 中显示您的事件，帮助您立即验证所发送的事件。
 </br>
-</br>
-</br>
-
 
   #### 记录C事件
 
@@ -188,8 +184,7 @@ adb logcat -v time -s FA FA-SVC
 
 记录事件，请参阅[文档](https://firebase.google.com/docs/analytics/cpp/events?hl=zh-cn)
 
-  
-
+</br>
 
 # Adjust接入
  ## Android接入
@@ -322,7 +317,6 @@ Adjust.trackAdRevenue(adjustAdRevenue);
 ```
 了解更多更详细参数请参考[官方文档](https://dev.adjust.com/en/sdk/android/features/ad-revenue)
 </br>
-</br>
 
 #### 记录购买订阅信息
 
@@ -342,7 +336,7 @@ Adjust.trackPlayStoreSubscription(subscription);
 ```
 
 更多详细参数方法，请参考[官方文档](https://dev.adjust.com/en/sdk/android/features/subscriptions)
-</br>
+
 </br>
 
  ## Unity接入
@@ -405,7 +399,6 @@ Adjust.trackAdRevenue(adjustAdRevenue);
 ```
 了解更多更详细参数请参考[官方文档](https://dev.adjust.com/en/sdk/unity/features/ad-revenue)
 </br>
-</br>
   
   ### 记录购买订阅信息
 首先，您需要实例化一个包含订阅购买详情的订阅对象。为此，请创建一个新AdjustPlayStoreSubscription对象并传递以下参数：
@@ -425,9 +418,6 @@ Adjust.trackPlayStoreSubscription(subscription);
 
 更多详细参数方法，请参考[官方文档](https://dev.adjust.com/en/sdk/unity/features/subscriptions)
 </br>
-</br>
-
-
 
  ## 测试指南
  1.测试 SDK 是否将您的应用内事件发送到 Adjust。
@@ -493,6 +483,8 @@ Adjust.trackPlayStoreSubscription(subscription);
 - 产品 ID
   
   ![](https://dev.adjust.com/_astro/testing-console.PELeaOX1_x2rTl.webp)
+  
+</br>
 
 # Topon广告接入
 ## Android接入指南
@@ -636,7 +628,6 @@ ATSDKAPI.initSDK("a5c4ad280995c9", "7b4e37f819dbee652ef79c4506e14288");//Use you
 
 [开屏广告接入](https://help.toponad.com/cn/docs/kai-ping-guang-gao-jie-ru)
 
-</br>
 </br>
 
 ## 错误码
