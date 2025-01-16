@@ -63,7 +63,7 @@
 
 在Android studio 日志控制台里面输入 adjust 过滤打印的日志,触发上报事件的按钮，会出现对应事件码的日志
 
-下图为adjust收入事件上报diamagnetic截图：
+下图为adjust收入事件上报代码截图：
 
 ![image](https://github.com/user-attachments/assets/b6eeadb3-7252-42c6-ad90-eeb971727aaf)
 
