@@ -6,6 +6,8 @@
 
 * [如何验证广告收入事件是否上报成功?](#验证广告收入事件是否上报成功)
 
+* [如何验证adjust事件是否上报成功?](#如何验证adjust事件是否上报成功)
+
 </br>
 </br>
 
@@ -53,6 +55,21 @@
 所以在控制台搜索事件名称：ad_impression ，如图：
 
 ![image](https://github.com/user-attachments/assets/9fba987a-da63-4874-aa32-b2fbfea291ec)
+
+</br>
+</br>
+
+### 如何验证adjust事件是否上报成功
+
+在Android studio 日志控制台里面输入 adjust 过滤打印的日志,触发上报事件的按钮，会出现对应事件码的日志
+
+下图为adjust收入事件上报diamagnetic截图：
+
+![image](https://github.com/user-attachments/assets/b6eeadb3-7252-42c6-ad90-eeb971727aaf)
+
+对应上图打印的日志如图：
+
+![image](https://github.com/user-attachments/assets/06d24b71-5495-4205-9b4b-91c0a2217ab1)
 
 
 
