@@ -94,7 +94,7 @@ Firebase.Analytics.FirebaseAnalytics.LogEvent(string name,string parameterName,s
 Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventLogin);
 
 // 记录带有浮点参数的事件  例如：记录观看广告获得的收入
-Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase", "revenue_value", 0.04f);
+Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", "revenue_value", 0.04f);
 
 // 记录带有 int 参数的事件。 例如：记录了游戏关卡达到5关
 Firebase.Analytics.FirebaseAnalytics.LogEvent("level","level_value",5);
@@ -111,7 +111,7 @@ Firebase.Analytics.Parameter[] parameters = {
   new Firebase.Analytics.Parameter("networkName", "这里传入广告名称"),
   new Firebase.Analytics.Parameter("revenue", 3.14f)
 };
-Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_purchase",parameters);
+Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression",parameters);
 ```
 </br>
 
@@ -128,7 +128,7 @@ params.putString("adUnitId", "这里传入广告ID");
 params.putInt("networkName", text);
 params.putInt("networkName", "这里传入广告名称");
 params.putFloat("revenue",0.0003f);
-mFirebaseAnalytics.logEvent("ad_purchase", params);
+mFirebaseAnalytics.logEvent("ad_impression", params);
 ```
 
 您可在以下位置找到推荐的事件类型的实现详情：
