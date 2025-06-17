@@ -11,7 +11,7 @@
 
 ### Max广告文档
 
-  + [MAx集成文档-unity为例](https://developers.axon.ai/zh/max/unity/overview/integration/) , [Max广告错误文档](https://developers.axon.ai/zh/max/unity/overview/error-handling/) , [Max广告测试指南](https://developers.axon.ai/zh/max/unity/testing-networks/mediation-debugger/)
+  + [MAx集成文档-unity为例](https://developers.axon.ai/zh/max/unity/overview/integration/) , [Max广告错误文档](https://developers.axon.ai/zh/max/unity/overview/error-handling/) , [Max广告测试指南](https://developers.axon.ai/zh/max/unity/testing-networks/mediation-debugger/) , [Max选择接入广告平台](https://developers.axon.ai/zh/max/android/preparing-mediated-networks)
 
 
 ### TopOn广告文档
