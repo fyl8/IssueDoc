@@ -1,20 +1,27 @@
-# [Firebase SDK 参考文档](https://firebase.google.com/docs/run?hl=zh-cn) 
-### 接入文档 
-  + [Unity添加Firebase](https://firebase.google.com/docs/unity/setup?hl=zh-cn) 
+# [Google SDK 参考文档](https://firebase.google.com/docs/run?hl=zh-cn) 
 
-  + [Android添加Firebase](https://firebase.google.com/docs/android/setup?hl=zh-cn) 
+  + [Firebase接入文档](https://firebase.google.com/docs/android/setup?hl=zh-cn)
+    
+  + [Firebase事件文档](https://firebase.google.com/docs/crashlytics/get-started?hl=zh-cn&platform=android)
 
-  + [C++添加Firebase](https://firebase.google.com/docs/cpp/setup?hl=zh-cn&platform=android) 
+  + [Google AdMob接入文档](https://firebase.google.com/docs/admob?hl=zh-cn) 
 
-  + [Web添加Firebase](https://firebase.google.com/docs/web/setup?hl=zh-cn) 
+  + [Google AdMob测试广告ID文档](https://developers.google.com/admob/android/test-ads?hl=zh-cn)
 
-  + [Flutter添加Firebase](https://firebase.google.com/docs/flutter/setup?hl=zh-cn&platform=android) 
+  + [Google AdMob广告错误码参考文档](https://developers.google.com/admob/android/reference/com/google/android/gms/ads/AdRequest?hl=zh-cn#ERROR_CODE_INTERNAL_ERROR)
 
-### 记录事件
-  + [Android记录Firebase事件](https://firebase.google.com/docs/analytics/get-started?platform=android&hl=zh-cn) 
+  + [Adjust接入文档](https://dev.adjust.com/en/sdk)
 
-  + [C++记录Firebase事件](https://firebase.google.com/docs/analytics/cpp/start?hl=zh-cn) 
+  + [Adjust事件接入文档](https://dev.adjust.com/zh/sdk/android/features/events)
 
-  + [Unity记录Firebase事件](https://firebase.google.com/docs/analytics/unity/start?hl=zh-cn) 
+  + [Adjust广告收入事件-MAX文档](https://dev.adjust.com/en/sdk/testing/event-recording)
 
-# [Google AdMob接入文档](https://firebase.google.com/docs/admob?hl=zh-cn) 
+  + [Adjust广告收入事件-TopOn文档](https://dev.adjust.com/zh/sdk/android/integrations/topon)
+
+  + [Adjust测试指南](https://dev.adjust.com/en/sdk/testing/event-recording)
+
+  + [MAx集成文档-unity为例](https://developers.axon.ai/zh/max/unity/overview/integration/)
+
+  + [Max广告错误文档](https://developers.axon.ai/zh/max/unity/overview/error-handling/)
+
+  + [Max广告测试指南](https://developers.axon.ai/zh/max/unity/testing-networks/mediation-debugger/)
