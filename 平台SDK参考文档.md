@@ -26,4 +26,6 @@
 
 ### 其它相关参考文档
 
-  +[Google Play SDK 收录第三方SDK索引](https://play.google.com/sdks)
+  + [Google Play SDK 收录第三方SDK索引](https://play.google.com/sdks)
+  + [Facebook SDK文档](https://developers.facebook.com/docs/android/componentsdks) , [Facebook SDK事件接入文档](https://developers.facebook.com/docs/app-events/getting-started-app-events-android)
+  + [Pangle广告SDK文档](https://www.pangleglobal.com/zh/integration/integrate-pangle-sdk-for-android) , [Pangle错误码文档](https://www.pangleglobal.com/zh/integration/error-code)
