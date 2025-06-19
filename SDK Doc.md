@@ -12,7 +12,8 @@
 ### Max广告文档
 
   + [MAx集成文档-unity为例](https://developers.axon.ai/zh/max/unity/overview/integration/) , [Max广告错误文档](https://developers.axon.ai/zh/max/unity/overview/error-handling/) , [Max广告测试指南](https://developers.axon.ai/zh/max/unity/testing-networks/mediation-debugger/) , [Max选择接入广告平台](https://developers.axon.ai/zh/max/android/preparing-mediated-networks)
-  + [Max对接快手(kwai)适配器文档](https://docs.qingque.cn/d/home/eZQC3WlIjed3sTY4UVMl07Fqz?identityId=2Ez7ByR2eFI#section=h.e8mhdvvnhkir)
+  + [Max对接快手(kwai)适配器官方文档](https://docs.qingque.cn/d/home/eZQC3WlIjed3sTY4UVMl07Fqz?identityId=2Ez7ByR2eFI#section=h.e8mhdvvnhkir)
+  + [Kwai-SDK Maven依赖库](https://central.sonatype.com/search?q=io.github.kwainetwork)
 
 ### TopOn广告文档
 
