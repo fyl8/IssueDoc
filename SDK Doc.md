@@ -45,7 +45,7 @@ implementation("io.github.kwainetwork:adApi:1.2.18")//必须添加
 implementation("io.github.kwainetwork:adImpl:1.2.18")//必须添加
 
 //Max适配器依赖
-implementation("io.github.kwainetwork:maxAdapter:1.2.18")//根据需求选择
+implementation("io.github.kwainetwork:maxAdapter:1.2.15")//根据需求选择
 //这是topon的适配器依赖
 implementation("com.anythink.sdk:adapter-tpn-kwai:6.4.27")//根据需求选择
 //这是admon的适配器
