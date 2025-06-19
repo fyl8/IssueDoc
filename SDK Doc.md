@@ -14,21 +14,8 @@
   + [MAx集成文档-unity为例](https://developers.axon.ai/zh/max/unity/overview/integration/) , [Max广告错误文档](https://developers.axon.ai/zh/max/unity/overview/error-handling/) , [Max广告测试指南](https://developers.axon.ai/zh/max/unity/testing-networks/mediation-debugger/) , [Max选择接入广告平台](https://developers.axon.ai/zh/max/android/preparing-mediated-networks)
   + [Max对接快手(kwai)适配器官方文档](https://docs.qingque.cn/d/home/eZQC3WlIjed3sTY4UVMl07Fqz?identityId=2Ez7ByR2eFI#section=h.e8mhdvvnhkir)
   + [Kwai-SDK Maven依赖库](https://central.sonatype.com/search?q=io.github.kwainetwork)
+  + [Kwai Maven依赖接入](#KwaiMaven依赖接入)
     
-Kwai的Maven依赖方式文档没说明清楚，下面是直接添加依赖的方式
-
-```
-//Kwai自身SDK，如需查看依赖的最新版本，请参考上面的Kwai-SDK Maven依赖库
-implementation("io.github.kwainetwork:adApi:1.2.18")
-implementation("io.github.kwainetwork:adImpl:1.2.18")
-//Max适配器依赖
-implementation("io.github.kwainetwork:maxAdapter:1.2.18")
-//这是topon的适配器依赖
-implementation("com.anythink.sdk:adapter-tpn-kwai:6.4.27")
-//这是admon的适配器
-implementation("io.github.kwainetwork:admobAdapter:1.2.15")
-
-```
 
 ### TopOn广告文档
 
@@ -46,4 +33,26 @@ implementation("io.github.kwainetwork:admobAdapter:1.2.15")
   + [Facebook广告接入文档](https://developers.facebook.com/docs/audience-network/setting-up/platform-setup/android/add-sdk?locale=zh_CN) , [Facebook广告错误码文档](https://developers.facebook.com/docs/audience-network/setting-up/test/checklist-errors#errors) , [Facebook广告测试指南](https://developers.facebook.com/docs/audience-network/setting-up/test/test-device)
   + [Facebook SDK文档](https://developers.facebook.com/docs/android/componentsdks) , [Facebook SDK事件接入文档](https://developers.facebook.com/docs/app-events/getting-started-app-events-android)
   + [Pangle广告SDK文档](https://www.pangleglobal.com/zh/integration/integrate-pangle-sdk-for-android) , [Pangle错误码文档](https://www.pangleglobal.com/zh/integration/error-code)
+
+
+# KwaiMaven依赖接入
+
+Kwai的Maven依赖方式文档没说明清楚，下面是直接添加依赖的方式
+
+```
+//Kwai自身SDK，如需查看依赖的最新版本，请参考上面的Kwai-SDK Maven依赖库
+implementation("io.github.kwainetwork:adApi:1.2.18")
+implementation("io.github.kwainetwork:adImpl:1.2.18")
+//Max适配器依赖
+implementation("io.github.kwainetwork:maxAdapter:1.2.18")
+//这是topon的适配器依赖
+implementation("com.anythink.sdk:adapter-tpn-kwai:6.4.27")
+//这是admon的适配器
+implementation("io.github.kwainetwork:admobAdapter:1.2.15")
+
+```
+
+
+
+    
   
