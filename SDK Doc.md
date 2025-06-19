@@ -37,18 +37,19 @@
 
 # KwaiMaven依赖接入
 
-Kwai的Maven依赖方式文档没说明清楚，下面是直接添加依赖的方式
+Kwai的官方文档没找到Maven依赖方式，下面是直接添加依赖的方式
 
 ```
 //Kwai自身SDK，如需查看依赖的最新版本，请参考上面的Kwai-SDK Maven依赖库
-implementation("io.github.kwainetwork:adApi:1.2.18")
-implementation("io.github.kwainetwork:adImpl:1.2.18")
+implementation("io.github.kwainetwork:adApi:1.2.18")//必须添加
+implementation("io.github.kwainetwork:adImpl:1.2.18")//必须添加
+
 //Max适配器依赖
-implementation("io.github.kwainetwork:maxAdapter:1.2.18")
+implementation("io.github.kwainetwork:maxAdapter:1.2.18")//根据需求选择
 //这是topon的适配器依赖
-implementation("com.anythink.sdk:adapter-tpn-kwai:6.4.27")
+implementation("com.anythink.sdk:adapter-tpn-kwai:6.4.27")//根据需求选择
 //这是admon的适配器
-implementation("io.github.kwainetwork:admobAdapter:1.2.15")
+implementation("io.github.kwainetwork:admobAdapter:1.2.15")//根据需求选择
 
 ```
 
