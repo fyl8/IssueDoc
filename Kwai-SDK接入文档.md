@@ -21,7 +21,7 @@ implementation "androidx.media3:media3-exoplayer:1.7.1"//播放视频广告需�
 
   aar依赖方式：
   
-- [kwai_maxAdapter_custom_v1.2.17](https://github.com/fyl8/IssueDoc/blob/main/kwai_maxAdapter_custom_v1.2.17.aar)
+- [Android-1.2.17](https://github.com/fyl8/IssueDoc/blob/main/kwai_maxAdapter_custom_v1.2.17.aar)
 
 ## 2.下载自定义适配了MAX适配器
 
