@@ -40,3 +40,12 @@ implementation "androidx.media3:media3-exoplayer:1.7.1"//播放视频广告需�
 ```
 参考图：
 ![image](https://github.com/user-attachments/assets/ee1f383b-c19c-4d18-991c-b603d6c56ce1)
+
+
+## 4.测试指南
+
+上面都集成完成后，运行后筛选日志：MyKwaiAdapter,会打印下面的日志：
+![image](https://github.com/user-attachments/assets/b7a33704-7bdd-434c-9f99-6a391493ee2a)
+
+
+
