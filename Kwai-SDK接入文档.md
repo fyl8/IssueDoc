@@ -12,13 +12,31 @@
 
 ## 1.添加kwai支持的依赖
 ```
-//Kwai自身SDK，如需查看依赖的最新版本，请参考上面的Kwai-SDK Maven依赖库
+//Kwai自身SDK，如需查看依赖的最新版本，请参Kwai-SDK Maven依赖库
 implementation("io.github.kwainetwork:adApi:1.2.18")//必须添加
 implementation("io.github.kwainetwork:adImpl:1.2.18")//必须添加
-
 implementation "androidx.media3:media3-exoplayer:1.7.1"//播放视频广告需要，最低1.0.0-alpha01
 
 ```
+
+  aar依赖方式：
+  
+- [kwai_maxAdapter_custom_v1.2.17](https://github.com/fyl8/IssueDoc/blob/main/kwai_maxAdapter_custom_v1.2.17.aar)
+
 ## 2.下载自定义适配了MAX适配器
 
--[kwai_maxAdapter_custom_v1.2.17]()
+- [kwai_maxAdapter_custom_v1.2.17](https://github.com/fyl8/IssueDoc/blob/main/kwai_maxAdapter_custom_v1.2.17.aar)
+
+
+## 3.MAX后台配置说明(需要运营操作)
+
+在max后台配置广告位，设置自定义网络的时候需要在自定义网络App Id 输入框设置以下内容：
+
+```
+
+//这里模板是kwai的测试广告位参数，测试完成后记得替换成正式的参数。参数每次更换都要等30-60分钟才生效
+{"appId":"899999","token":"EaCw0AipSYyvf3E7","appName":"TEST","domain":"www.kwai.com","storeUrl":"","tagId":"8999996001","floorPrice":"0.01"}
+
+```
+参考图：
+![image](https://github.com/user-attachments/assets/ee1f383b-c19c-4d18-991c-b603d6c56ce1)
