@@ -6,7 +6,7 @@
 
 ### Adjust文档(V5版本)
 
-  + [Adjust接入文档](https://dev.adjust.com/en/sdk) , [Adjust事件接入文档](https://dev.adjust.com/zh/sdk/android/features/events) , [Adjust广告收入事件-MAX文档](https://dev.adjust.com/en/sdk/testing/event-recording) , [Adjust广告收入事件-TopOn文档](https://dev.adjust.com/zh/sdk/android/integrations/topon) , [Adjust测试指南](https://dev.adjust.com/en/sdk/testing/event-recording)
+  + [Adjust接入文档](https://dev.adjust.com/en/sdk) , [Adjust事件接入文档](https://dev.adjust.com/zh/sdk/android/features/events) , [Adjust广告收入事件-MAX文档](https://dev.adjust.com/zh/sdk/android/integrations/applovin) , [Adjust广告收入事件-TopOn文档](https://dev.adjust.com/zh/sdk/android/integrations/topon) , [Adjust测试指南](https://dev.adjust.com/en/sdk/testing/event-recording)
 
 
 ### Max广告文档
