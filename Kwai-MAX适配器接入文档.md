@@ -23,6 +23,8 @@ implementation "androidx.media3:media3-exoplayer:1.7.1"//播放视频广告需�
   
 - [Android-1.2.17](https://github.com/fyl8/IssueDoc/blob/main/KwaiAdsSDKFull-Android-1.2.17.zip)
 
+  压缩文件里面的 kwai_maxAdapter_release_v1.2.17_202503030246.aar 替换为下面的自定义Max适配器aar.
+
 ## 2.下载自定义适配了MAX适配器
 
 - [kwai_maxAdapter_custom_v1.2.17](https://github.com/fyl8/IssueDoc/blob/main/kwai_maxAdapter_custom_v1.2.17.aar)
