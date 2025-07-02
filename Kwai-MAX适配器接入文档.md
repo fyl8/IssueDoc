@@ -1,6 +1,6 @@
 # Kwai-SDK接入说明
 
-目前已知kwai max适配器SDK1.2.17版本之前有重大问题：
+目前已知kwai max适配器有重问题：
 
 1.kwai sdk获取后台配置参数是通过获取自定义参数来初始化kwai本身SDK的，max sdk 在初始化的时候不支持获取自定义参数，这就导致获取不到app_id 和token 导致初始化失败。
 
@@ -11,43 +11,68 @@
 针对上面的1,3问题，做了自定义适配,下面是适配接入方法：
 
 ## 1.添加kwai支持的依赖
-```
-//Kwai自身SDK，如需查看依赖的最新版本，请参Kwai-SDK Maven依赖库
-implementation("io.github.kwainetwork:adApi:1.2.18")//必须添加
-implementation("io.github.kwainetwork:adImpl:1.2.18")//必须添加
-implementation "androidx.media3:media3-exoplayer:1.7.1"//播放视频广告需要，最低1.0.0-alpha01
+
+- [点击这里下载最新版Kwai SDK](https://github.com/fyl8/IssueDoc/blob/main/kwai_SDK_v1.2.19_202507020313.zip)
+
+  1.把压缩文件里面的3个aar文件复制到工程libs文件目录下
+
+  2.添加aar依赖支持
 
 ```
+dependencies {
+    ...
+    implementation "androidx.media3:media3-exoplayer:1.7.1"
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+}
+```
 
-  aar依赖方式：
-  
-- [Android-1.2.17](https://github.com/fyl8/IssueDoc/blob/main/KwaiAdsSDKFull-Android-1.2.17.zip)
+3.AndroidManifest文件添加支持
 
-  压缩文件里面的 kwai_maxAdapter_release_v1.2.17_202503030246.aar 替换为下面的自定义Max适配器aar.
+```
+<meta-data
+            android:name="com.kwai.network.maxadapter.KwaiMaxMediationAdapter"
+            android:value="KwaiAds" />
+```
 
-## 2.下载自定义适配了MAX适配器
-
-- [kwai_maxAdapter_custom_v1.2.17](https://github.com/fyl8/IssueDoc/blob/main/kwai_maxAdapter_custom_v1.2.17.aar)
-
-
-## 3.MAX后台配置说明(需要运营操作)
+## 2.MAX后台配置说明(需要运营操作)
 
 在max后台配置广告位，设置自定义网络的时候需要在自定义网络App Id 输入框设置以下内容：
 
 ```
 
 //这里模板是kwai的测试广告位参数，测试完成后记得替换成正式的参数。参数每次更换都要等30-60分钟才生效
-{"appId":"899999","token":"EaCw0AipSYyvf3E7","appName":"TEST","domain":"www.kwai.com","storeUrl":"","tagId":"8999996001","floorPrice":"0.01"}
+{"appId":"899999","token":"EaCw0AipSYyvf3E7","appName":"TEST","domain":"www.kwai.com","storeUrl":"","tagId":"8999996001","floorPrice":"0.1"}
 
 ```
 参考图：
 ![image](https://github.com/user-attachments/assets/ee1f383b-c19c-4d18-991c-b603d6c56ce1)
 
 
-## 4.测试指南
+## 3.测试指南
 
-上面都集成完成后，把包名修改成测试包名：com.yunyu.test , 运行后筛选日志：MyKwaiAdapter,会打印下面的日志：
-![image](https://github.com/user-attachments/assets/b7a33704-7bdd-434c-9f99-6a391493ee2a)
+1.确保3个aar包已经依赖进工程，可打包反编译查看是否依赖成功，如图：
+
+![image](https://github.com/user-attachments/assets/0fc6f4c2-2d34-4fda-8810-ccb8c35da38e)
+
+2.修改包名为测试包名：com.yunyu.test ,方便测试.
+
+3.运行应用，筛选日志：Applovin （也可以筛选日志：IAA），日志会打印以下内容：
+
+```
+2025-07-02 17:05:06.366 20972-20972 IAA                     com.yunyu.test                       E  初始化成功
+2025-07-02 17:05:06.498 20972-21077 IAA                     com.yunyu.test                       E  initProperties result = {"appId":"899999","token":"EaCw0AipSYyvf3E7","appName":"yunyuTest","domain":"www.kwai.com","storeUrl":"","tagId":"8999996001","floorPrice":"0.01"}
+2025-07-02 17:05:06.736 20972-20972 IAA                     com.yunyu.test                       D  KwaiAdapter initialize onSuccess
+
+```
+
+4.点击加载广告会打印日志(筛选日志：AppLovinSdk)(搜索日志：networkName=)：
+
+```
+2025-07-02 17:05:20.625 20972-20972 AppLovinSdk             com.yunyu.test                       D  [MaxRewardedAd] MaxAdListener.onAdLoaded(ad=MediatedAd{thirdPartyAdPlacementId=8999996001, adUnitId=97f1e4a461d53cc9, format=REWARDED, networkName='KwaiAds'}), listener=com.github.iaa.applovin.MaxAds$1@511e599
+
+```
+
+### PS:如果初始化成功，加载的网络是Applovin，则多看几个广告尝试一下。
 
 
 
