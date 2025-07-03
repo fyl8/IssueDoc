@@ -36,7 +36,24 @@ dependencies {
 
 ## 2.MAX后台配置说明(需要运营操作)
 
-在max后台配置广告位，设置自定义网络的时候需要在自定义网络App Id 输入框设置以下内容：
+Max后台创建自定义网络：
+
+```
+Custom Network Name ：KwaiAds
+
+iOS Adapter Class Name ：KCOUnionMaxMediationAdapter
+
+Android / Fire OS Adapter Class Name：
+com.kwai.network.maxadapter.KwaiMaxMediationAdapter
+```
+
+
+如图：
+
+![image](https://github.com/user-attachments/assets/99878215-2ce6-412b-b44b-69a7d4c7d21f)
+
+
+Max后台配置广告位，设置自定义网络的时候需要在自定义网络App Id 输入框设置以下内容：
 
 ```
 
