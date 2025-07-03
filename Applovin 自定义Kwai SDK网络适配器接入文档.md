@@ -88,7 +88,12 @@ Max后台配置广告位，设置自定义网络的时候需要在自定义网�
 
 ```
 
-### PS:如果初始化成功，加载的网络是Applovin，则多看几个广告尝试一下。
+### PS:如果初始化成功，加载的网络是Applovin，则多看几个广告尝试一下。Kwai的测试广告如图：
+
+![1751510702629](https://github.com/user-attachments/assets/305f0864-d1ef-4cff-8efb-9f465e03b6be)
+
+
+
 
 
 
