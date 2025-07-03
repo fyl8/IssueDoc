@@ -25,8 +25,7 @@ dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }
 ```
-
-3.AndroidManifest文件添加支持
+  3.AndroidManifest文件添加支持
 
 ```
 <meta-data
