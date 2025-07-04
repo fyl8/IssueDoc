@@ -13,7 +13,7 @@
 
  ## 文本材料
  
-需要提供一个README.txt或者README.md 文本文件，里面的内容为：应用名称，包名，简介，描述，签名密码，别名，别名密码，隐私政策地址
+需要提供一个README.txt或者README.md 文本文件，里面的内容为：应用名称，包名，简介，描述，签名密码，别名，别名密码，隐私政策地址，游戏对应官网地址。
 
 [免费隐私政策生成网站](https://www.freeprivacypolicy.com)
 
@@ -35,6 +35,8 @@
 7.别名密码:xxxx
 
 8.隐私政策地址: https://www.freeprivacypolicy.com/live/8e92a503-576e-4f87-a17a-0da55cf42c81
+
+9.游戏官网地址：https://xxxx.com（用于在域名根目录存放广告app-ads.txt文件）
 
 ```
 
