@@ -15,7 +15,13 @@
  
 需要提供一个README.txt或者README.md 文本文件，里面的内容为：应用名称，包名，简介，描述，签名密码，别名，别名密码，隐私政策地址，游戏对应官网地址。
 
-[免费隐私政策生成网站](https://www.freeprivacypolicy.com)
+PS：应用名称需要特别注意，不能和Google play 上面的名称有相似的。可以参考[Google 假冒违规示例](https://support.google.com/googleplay/android-developer/answer/9888374/#zippy=%2C%E5%B8%B8%E8%A7%81%E8%BF%9D%E8%A7%84%E8%A1%8C%E4%B8%BA%E7%A4%BA%E4%BE%8B)
+
+PS：应用名称需要特别注意，不能和Google play 上面的名称有相似的。可以参考[Google 假冒违规示例](https://support.google.com/googleplay/android-developer/answer/9888374/#zippy=%2C%E5%B8%B8%E8%A7%81%E8%BF%9D%E8%A7%84%E8%A1%8C%E4%B8%BA%E7%A4%BA%E4%BE%8B)
+
+PS：应用名称需要特别注意，不能和Google play 上面的名称有相似的。可以参考[Google 假冒违规示例](https://support.google.com/googleplay/android-developer/answer/9888374/#zippy=%2C%E5%B8%B8%E8%A7%81%E8%BF%9D%E8%A7%84%E8%A1%8C%E4%B8%BA%E7%A4%BA%E4%BE%8B)
+
+隐私政策参考：[免费隐私政策生成网站](https://www.freeprivacypolicy.com)
 
 文本格式如下：
 
