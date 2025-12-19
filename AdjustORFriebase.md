@@ -1,6 +1,6 @@
 ### Android
 
-1. 复制文件：EventManager.java
+1. 复制文件：[EventManager.java](https://github.com/fyl8/IssueDoc/blob/main/EventManager.java)
 
 2. 初始化：
 ```
@@ -20,7 +20,7 @@ EventManager.getInstance(this)//初始化
 ```
 
 ### Unity
-1. 复制文件：EventManager.cs
+1. 复制文件：[EventManager.cs](https://github.com/fyl8/IssueDoc/blob/main/EventManager.cs)
 
 2. 初始化：
 ```
