@@ -91,7 +91,6 @@ public class EventManager {
         adjustAdRevenue.setAdRevenueNetwork(ad.getNetworkName());
         adjustAdRevenue.setAdRevenueUnit(ad.getAdUnitId());
         adjustAdRevenue.setAdRevenuePlacement(ad.getPlacement());
-        adjustAdRevenue.setAdImpressionsCount(0);//这里改成0，不记录广告展示次数
         adjustAdRevenue.setAdRevenuePlacement("banner");//如果是激励视频，设置成：reward
         Adjust.trackAdRevenue( adjustAdRevenue);
     }
@@ -113,4 +112,5 @@ public class EventManager {
 
 
 }
+
 
